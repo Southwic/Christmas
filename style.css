@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* Headings */
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: #c62828;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+p {
+  font-size: clamp(1rem, 3.5vw, 1.15rem);
+  line-height: 1.8;
+  margin-bottom: 35px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 14px 34px;
+  background: #c62828;
+  color: white;
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #a61b1b;
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Music toggle button (shares .button styles) */
+.music-toggle {
+  margin-left: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+  background: linear-gradient(90deg, #ff8a65, #c62828);
+}
+.music-toggle:hover {
+  transform: scale(1.06) rotate(-0.5deg);
+}
+
+/* Notes */
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 40px;
+  z-index: 1;
+}
+
+.note {
+  background: white;
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  transition: 0.4s;
+  animation: pop 0.6s ease forwards;
+  z-index: 1;
+}
+
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.note:hover {
+  transform: translateY(-8px) rotate(-1deg);
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.4s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.08);
+}
+
+/* Snow */
+.snow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .container {
+    padding: 60px 16px;
+  }
+}
+
+
+.container {
+    position: relative;
+}
+
+.floating-cat {
+    position: absolute;
+    width: 120px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.cat-left {
+    bottom: -30px;
+    left: -50px;
+}
+
+
+.cat-right {
+    top: -80px;
+    right: -60px;
+}
+
+.floating-cat { 
+  z-index: 10;
+  width: 140px; }
+
+@keyframes floaty {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.floating-cat {
+    animation: floaty 4s ease-in-out infinite;
+}
+
+
+body {
+  background-color: #fceed2; /* Cream background like the image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 40px; /* Large, smooth rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft, subtle shadow */
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+.message {
+  color: #5d6d7e;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.instruction {
+  color: #ff768a; /* Pinkish-red script color */
+  font-family: 'Cursive', sans-serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.gift-button {
+  background-color: #ff768a; /* The pink button color */
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px; /* Fully rounded pill shape */
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gift-button:hover {
+  transform: scale(1.05); /* Slight pop effect when hovering */
+}
+
+
+/* Position the container in the top left */
+.dots-container {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  display: flex;
+  gap: 8px; /* Space between the dots */
+}
+
+/* Base style for all dots */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Specific colors based on the image */
+.red { background-color: #ffadad; }
+.yellow { background-color: #ffd6a5; }
+.green { background-color: #9bf6ff; }
+
+/* The container holding both the title and the card */
+.main-container {
+  display: flex;
+  flex-direction: column; /* This stacks items vertically */
+  align-items: center;    /* This centers them horizontally */
+  gap: 30px;              /* Space between the title and the card */
+}
+
+/* Styling for the Heading */
+.merry-heading {
+  color: #b32d2e;         /* Christmas Red */
+  font-family: 'Cursive', ui-serif; 
+  font-size: 4rem;        /* Large size like the image */
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* The card remains the same, just ensure it has a large max-width */
+.card {
+  position: relative;
+  background-color: white;
+  max-width: 800px;
+  width: 90%;
+  padding: 80px 60px 60px 60px;
+  border-radius: 50px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+
+.corner-bunny {
+  position: absolute;
+  
+  /* Positioning */
+  bottom: 180px;    /* Negative value moves it UP outside the box */
+  right: 60px;  /* Negative value moves it RIGHT outside the box */
+  
+  /* Size and Style */
+  width: 200px;  /* Adjust size as needed */
+  height: auto;
+  border-radius: 15px; /* Optional: rounds the corners of the bunny photo */
+  
+  /* This ensures it stays on top of the card border */
+  z-index: 10; 
+
+}
+
+.bunny {
+  position: absolute;
+  
+  /* Positioning */
+  bottom: 180px;    /* Negative value moves it UP outside the box */
+  right: 60px;  /* Negative value moves it RIGHT outside the box */
+  
+  /* Size and Style */
+  width: 150px;  /* Adjust size as needed */
+  height: auto;
+  border-radius: 15px; /* Optional: rounds the corners of the bunny photo */
+  
+  /* This ensures it stays on top of the card border */
+  z-index: 10; 
+
+}
